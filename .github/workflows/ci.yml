@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package-name: [node-library-template, react-library-template]
+        package-name: [attw-before-publish]
 
     steps:
       - uses: actions/checkout@v3.5.3

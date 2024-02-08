@@ -1,15 +1,23 @@
 {
-  "name": "@spautz/react-library-template",
-  "version": "0.3.0",
-  "description": "My opinionated template for a React package",
-  "keywords": [],
+  "name": "attw-before-publish",
+  "version": "0.0.1",
+  "description": "Run Are-The-Types-Wrong as a precheck for npm pack or npm publish",
+  "keywords": [
+    "AreTheTypesWrong",
+    "Are-The-Types-Wrong",
+    "attw",
+    "pack",
+    "publish",
+    "package",
+    "library"
+  ],
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/packages/react-library-template/README.md",
-  "bugs": "https://github.com/spautz/package-template/issues",
+  "homepage": "https://github.com/spautz/attw-before-publish/blob/main/packages/attw-before-publish/README.md",
+  "bugs": "https://github.com/spautz/attw-before-publish/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/spautz/package-template.git",
-    "directory": "packages/react-library-template"
+    "url": "https://github.com/spautz/attw-before-publish.git",
+    "directory": "packages/attw-before-publish"
   },
   "author": {
     "name": "Steven Pautz",
@@ -28,7 +36,7 @@
     "LICENSE",
     "*.md"
   ],
-  "source": "./src/index.tsx",
+  "source": "./src/index.ts",
   "type": "module",
   "exports": {
     ".": {
@@ -84,13 +92,9 @@
     "test:watchcoverage": "pnpm run test:clean && vitest watch --coverage",
     "typecheck": "tsc -p ./tsconfig.json --noEmit"
   },
-  "dependencies": {
-    "@spautz/node-library-template": "workspace:^"
-  },
+  "dependencies": {},
   "devDependencies": {},
-  "peerDependencies": {
-    "react": "^16.9.0 || ^17 || ^18"
-  },
+  "peerDependencies": {},
   "size-limit": [
     {
       "path": "./dist/esm/index.js",
@@ -99,7 +103,7 @@
     },
     {
       "path": "./dist/esm/index.js",
-      "import": "{ TodoComponent }",
+      "import": "{ helloWorld }",
       "limit": "1 kb"
     }
   ],
