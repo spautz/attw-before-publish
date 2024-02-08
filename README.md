@@ -1,29 +1,25 @@
-# package-template
+# ATTW-Before-Publish
 
-[![build status](https://github.com/spautz/package-template/workflows/CI/badge.svg)](https://github.com/spautz/package-template/actions)
-[![test coverage](https://img.shields.io/coveralls/github/spautz/package-template/main.svg)](https://coveralls.io/github/spautz/package-template?branch=main)
-[![repo vulnerabilities](https://snyk.io/test/github/spautz/package-template/badge.svg)](https://snyk.io/test/github/spautz/package-template)
+Run Are-The-Types-Wrong as a precheck for npm pack or npm publish
 
-My opinionated template for a npm library monorepo
+[![npm version](https://img.shields.io/npm/v/attw-before-publish.svg)](https://www.npmjs.com/package/attw-before-publish)
+[![readme](https://img.shields.io/badge/-readme-informational)](https://github.com/spautz/attw-before-publish/blob/main/packages/attw-before-publish/README.md)
+[![build status](https://github.com/spautz/attw-before-publish/workflows/CI/badge.svg)](https://github.com/spautz/attw-before-publish/actions)
+[![test coverage](https://img.shields.io/coveralls/github/spautz/attw-before-publish/main.svg)](https://coveralls.io/github/spautz/attw-before-publish?branch=main)
+[![repo vulnerabilities](https://snyk.io/test/github/spautz/attw-before-publish/badge.svg)](https://snyk.io/test/github/spautz/attw-before-publish)
+[![gzip size](https://img.shields.io/bundlephobia/minzip/attw-before-publish.svg)](https://bundlephobia.com/package/attw-before-publish@latest)
 
-## Packages
+## NOT YET READY
 
-#### [@spautz/node-library-template](https://github.com/spautz/package-template/blob/main/packages/node-library-template/README.md)
+This package is under active development, as of February 2024.
 
-[![npm version](https://img.shields.io/npm/v/@spautz/node-library-template.svg)](https://www.npmjs.com/package/@spautz/node-library-template)
-[![readme](https://img.shields.io/badge/-readme-informational)](https://github.com/spautz/package-template/blob/main/packages/node-library-template/README.md)
-[![test coverage](https://coveralls.io/repos/github/spautz/package-template/badge.svg?branch=x-cov-node-library-template)](https://coveralls.io/github/spautz/package-template?branch=x-cov-node-library-template)
-[![vulnerabilities](https://snyk.io/test/npm/@spautz/node-library-template/badge.svg)](https://snyk.io/test/npm/@spautz/node-library-template)
-[![gzip size](https://img.shields.io/bundlephobia/minzip/@spautz/node-library-template.svg)](https://bundlephobia.com/package/@spautz/node-library-template@latest)
+## Overview
 
-Example package for a NodeJS library. Used to test the publishing workflow and per-package code coverage.
+[AreTheTypesWrong](https://arethetypeswrong.github.io/) ([`@arethetypeswrong/cli`](https://www.npmjs.com/package/@arethetypeswrong/cli))
+is an excellent tool for validating a npm package's typings, but it operates on a packed (gzipped) package. This makes
+it difficult to run AreTheTypesWrong as part of `pack` or `publish`
 
-#### [@spautz/react-library-template](https://github.com/spautz/package-template/blob/main/packages/react-library-template/README.md)
+`attw-before-publish` provides commands that validate the package while performing the `pack` or `publish` commands:
 
-[![npm version](https://img.shields.io/npm/v/@spautz/react-library-template.svg)](https://www.npmjs.com/package/@spautz/react-library-template)
-[![readme](https://img.shields.io/badge/-readme-informational)](https://github.com/spautz/package-template/blob/main/packages/react-library-template/README.md)
-[![test coverage](https://coveralls.io/repos/github/spautz/package-template/badge.svg?branch=x-cov-react-library-template)](https://coveralls.io/github/spautz/package-template?branch=x-cov-react-library-template)
-[![vulnerabilities](https://snyk.io/test/npm/@spautz/react-library-template/badge.svg)](https://snyk.io/test/npm/@spautz/react-library-template)
-[![gzip size](https://img.shields.io/bundlephobia/minzip/@spautz/react-library-template.svg)](https://bundlephobia.com/package/@spautz/react-library-template@latest)
-
-Example package for a React library. Used to test the publishing workflow and per-package code coverage.
+- `attw-pack` runs `npm pack` and validates the resulting `[package-name].tgz`
+- `attw-publish` runs `npm pack`, validates the resulting `[package-name].tgz`, and then proceeds with the publish it if it is valid
